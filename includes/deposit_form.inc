@@ -76,7 +76,7 @@ function islandora_add_datastream_create_license_ds($fid, AbstractObject $object
     // Drupal returns $transcript_file->filemime = 'application/octet-stream' for certain files
     $license_ext = pathinfo($license_file->filename, PATHINFO_EXTENSION);
     $ds->mimetype = $license_file->filemime;
-    drupal_set_message('$ds->mimetype');
+    drupal_set_message(t("Saved license of type %mimetype.", array('%mimetype' => $ds->mimetype)));
     // if (strtolower($transcript_ext) == 'vtt'){
     //   $ds->mimetype = 'text/vtt';
     // } else {

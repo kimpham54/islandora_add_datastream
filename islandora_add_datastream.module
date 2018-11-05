@@ -24,19 +24,19 @@ function islandora_add_datastream_menu() {
 
 
 /**
- * Implements hook_islandora_ingest_steps().
+ * Implements hook_islandora_ingest_steps(). Use for content model specific functionality.
  */
-function islandora_add_datastream_islandora_ingest_steps(array &$form_state) {
-  $steps = array();
+// function islandora_add_datastream_islandora_ingest_steps(array &$form_state) {
+//   $steps = array();
 
-  module_load_include('inc', 'islandora', 'includes/ingest.form');
-  module_load_include('inc', 'islandora', 'includes/utilities');
-  $shared_storage = islandora_ingest_form_get_shared_storage($form_state);
+//   module_load_include('inc', 'islandora', 'includes/ingest.form');
+//   module_load_include('inc', 'islandora', 'includes/utilities');
+//   $shared_storage = islandora_ingest_form_get_shared_storage($form_state);
 
-  $datastreams = islandora_get_datastreams_requirements_from_models($shared_storage['models']);
+//   $datastreams = islandora_get_datastreams_requirements_from_models($shared_storage['models']);
 
-  return $steps;
-}
+//   return $steps;
+// }
 
 
 /**
@@ -70,9 +70,9 @@ function islandora_add_datastream_islandora_ingest_steps_alter(array &$steps, ar
 }
 
 /**
- * Implements hook_islandora_edit_datastream_registry().
+ * Implements hook_islandora_edit_datastream_registry(). This is the datastream edit button.
  */
-function islandora_oralhistories_islandora_edit_datastream_registry(AbstractObject $object, AbstractDatastream $datastream) {
+function islandora_add_datastream_islandora_edit_datastream_registry(AbstractObject $object, AbstractDatastream $datastream) {
   if (strtoupper($datastream->id) == 'LICENSE') {
     return array(
       array(
