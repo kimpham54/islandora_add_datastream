@@ -23,8 +23,6 @@ function islandora_add_datastream_menu() {
 
 
 
-
-
 /**
  * Implements hook_islandora_ingest_steps().
  */
@@ -39,10 +37,6 @@ function islandora_add_datastream_islandora_ingest_steps(array &$form_state) {
 
   return $steps;
 }
-
-
-
-
 
 
 /**
@@ -79,37 +73,16 @@ drupal_set_message("ingest steps alter troubleshooting");
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// /**
-//  * Implements hook_islandora_edit_datastream_registry().
-//  */
-// function islandora_add_datastream_islandora_edit_datastream_registry(AbstractObject $object, AbstractDatastream $datastream) {
-//   if (strtoupper($datastream->id) == 'LICENSE') {
-//     return array(
-//       array(
-//         'name' => t('Islandora Edit custom datastream'),
-//         'url' => "islandora/object/{$object->id}/edit_form/{$datastream->id}",
-//       ),
-//     );
-//   }
-// }
-
+/**
+ * Implements hook_islandora_edit_datastream_registry().
+ */
+function islandora_oralhistories_islandora_edit_datastream_registry(AbstractObject $object, AbstractDatastream $datastream) {
+  if (strtoupper($datastream->id) == 'LICENSE') {
+    return array(
+      array(
+        'name' => t('Islandora LICENSE EDIT FORM'),
+        'url' => "islandora/object/{$object->id}/edit_form/{$datastream->id}",
+      ),
+    );
+  }
+}
