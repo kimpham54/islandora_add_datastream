@@ -1,10 +1,20 @@
 # Islandora Add Datastream
 
+
 ## Introduction
 
+This is a prototype islandora utility module to add a single 'LICENSE' datastream when ingesting an object. It's an experiment!
+
+1. Install module
+1. Go to any collection > Manage
+1. Add an object to this Collection
+1. Option to Add License Datastream. Usually PDF or txt. Click on checkbox 'click here to agree', acknowledging license deposit
+1. Click through the rest of the ingest steps
+1. When ingested, in object, go to Manage > Datastreams and LICENSE should appear
 
 # Status
 
+Very very hacky
 
 ## Requirements
 
@@ -17,22 +27,9 @@ This module requires the following modules/libraries:
 
 Install as usual, see [this](https://drupal.org/documentation/install/modules-themes/modules-7) for further information.
 
-## Configuration
-
-## Documentation
-
-## Troubleshooting/Issues
-
-## FAQ
-
 ## Maintainers/Sponsors
 
-
-## Development
-
-If you would like to contribute to this module, please check out [CONTRIBUTING.md](CONTRIBUTING.md). In addition, we have helpful [Documentation for Developers](https://github.com/Islandora/islandora/wiki#wiki-documentation-for-developers) info, as well as our [Developers](http://islandora.ca/developers) section on the [Islandora.ca](http://islandora.ca) site.
-
-Also include any Travis gotcha's here.
+* Kim Pham @kimpham54
 
 ## License
 

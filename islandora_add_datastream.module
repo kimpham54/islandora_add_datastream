@@ -48,9 +48,6 @@ function islandora_add_datastream_islandora_ingest_steps_alter(array &$steps, ar
 
 
 // alter the ingest steps to add a form.
-
-drupal_set_message("ingest steps alter troubleshooting");
-
   if (isset($steps['xml_form_builder_metadata_step'])) {
     $association = isset($steps['xml_form_builder_metadata_step']['args'][0]) ? $steps['xml_form_builder_metadata_step']['args'][0] : NULL;
     if (isset($association['dsid']) && $association['dsid'] == 'MODS') {
@@ -59,7 +56,6 @@ drupal_set_message("ingest steps alter troubleshooting");
       // $selected_urls = get_license_deposit_url($selected_collection_name);
       $selected_urls = 1;
       if($selected_urls > 0) {
-        drupal_set_message("metadata steps yo");
         $steps['islandora_add_datastream_form'] = array(
           'type' => 'form',
           'form_id' => 'islandora_add_datastream_form',

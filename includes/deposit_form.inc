@@ -18,7 +18,7 @@ function islandora_add_datastream_form(array $form, array &$form_state) {
 $form['islandora_add_datastream_licensefile'] = array(
 
   '#title' => 'Add License Datastream',
-  '#description' => t('adding a datastream yo'),
+  '#description' => t('add your license file here'),
   '#type' => 'managed_file',
   '#default_value' => isset($form_state['values']['islandora_add_datastream_licensefile']) ? $form_state['values']['islandora_add_datastream_licensefile'] : NULL,
   '#upload_location' => 'temporary://',
