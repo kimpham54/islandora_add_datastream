@@ -19,9 +19,9 @@
  *   The Drupal form definition.
  */
  
-function islandora_add_datastream_admin(array $form, array &$form_state) {
+function islandora_addcustom_datastream_admin(array $form, array &$form_state) {
 
-  $form['islandora_add_datastream'] = array(
+  $form['islandora_addcustom_datastream'] = array(
     '#type' => 'fieldset',
     '#title' => t('ADMIN OPTIONS FOR ADD DATASTREAM'),
     '#description' => t('SOME CONFIG OPTIONS FOR ADDING DATASTREAMS WOULD GO HERE'),

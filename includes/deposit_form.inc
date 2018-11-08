@@ -13,14 +13,14 @@
  *   The drupal form definition.
  */
 
-function islandora_add_datastream_form(array $form, array &$form_state) {
+function islandora_addcustom_datastream_form(array $form, array &$form_state) {
 
-$form['islandora_add_datastream_licensefile'] = array(
+$form['islandora_addcustom_datastream_licensefile'] = array(
 
   '#title' => 'Add License Datastream',
   '#description' => t('add your license file here'),
   '#type' => 'managed_file',
-  '#default_value' => isset($form_state['values']['islandora_add_datastream_licensefile']) ? $form_state['values']['islandora_add_datastream_licensefile'] : NULL,
+  '#default_value' => isset($form_state['values']['islandora_addcustom_datastream_licensefile']) ? $form_state['values']['islandora_addcustom_datastream_licensefile'] : NULL,
   '#upload_location' => 'temporary://',
         // 'file_validate_size' => array($upload_size * 1024 * 1024), 
   );
@@ -44,13 +44,13 @@ $form['islandora_add_datastream_licensefile'] = array(
  * @param array $form_state
  *   The drupal form state.
  */
-function islandora_add_datastream_form_submit(array $form, array &$form_state) {
+function islandora_addcustom_datastream_form_submit(array $form, array &$form_state) {
   $object = islandora_ingest_form_get_object($form_state);
 
   // create LICENSE ds when transcript_file is presented.
-  if (!empty($form_state['values']['islandora_add_datastream_licensefile'])) {
-    $fid = $form_state['values']['islandora_add_datastream_licensefile'];
-    islandora_add_datastream_create_license_ds($fid, $object);
+  if (!empty($form_state['values']['islandora_addcustom_datastream_licensefile'])) {
+    $fid = $form_state['values']['islandora_addcustom_datastream_licensefile'];
+    islandora_addcustom_datastream_create_license_ds($fid, $object);
   }
 }
 /**
@@ -59,7 +59,7 @@ function islandora_add_datastream_form_submit(array $form, array &$form_state) {
  * @param $fid
  * @param \AbstractObject $object
  */
-function islandora_add_datastream_create_license_ds($fid, AbstractObject $object) {
+function islandora_addcustom_datastream_create_license_ds($fid, AbstractObject $object) {
   // Create LICENSE datastream
   try {
     if (empty($object['LICENSE'])) {

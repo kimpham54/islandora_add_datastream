@@ -7,13 +7,13 @@
 /**
  * Implements hook_menu().
  */
-function islandora_add_datastream_menu() {
+function islandora_addcustom_datastream_menu() {
   drupal_set_message("menu stuff");
   $items['admin/islandora/tools/add_datastream'] = array(
     'title' => 'Add a Datastream',
     'description' => 'Add datastreams in PDF content model',
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('islandora_add_datastream_admin'),
+    'page arguments' => array('islandora_addcustom_datastream_admin'),
     'access arguments' => array('administer site configuration'),
     'file' => 'includes/admin.form.inc',
     'type' => MENU_NORMAL_ITEM,
@@ -26,7 +26,7 @@ function islandora_add_datastream_menu() {
 /**
  * Implements hook_islandora_ingest_steps(). Use for content model specific functionality.
  */
-function islandora_add_datastream_islandora_ingest_steps(array &$form_state) {
+function islandora_addcustom_datastream_islandora_ingest_steps(array &$form_state) {
   $steps = array();
 
   module_load_include('inc', 'islandora', 'includes/ingest.form');
@@ -44,7 +44,7 @@ function islandora_add_datastream_islandora_ingest_steps(array &$form_state) {
  */
 
 
-function islandora_add_datastream_islandora_ingest_steps_alter(array &$steps, array &$form_state) {
+function islandora_addcustom_datastream_islandora_ingest_steps_alter(array &$steps, array &$form_state) {
 
 
 // alter the ingest steps to add a form.
@@ -56,13 +56,13 @@ function islandora_add_datastream_islandora_ingest_steps_alter(array &$steps, ar
       // $selected_urls = get_license_deposit_url($selected_collection_name);
       $selected_urls = 1;
       if($selected_urls > 0) {
-        $steps['islandora_add_datastream_form'] = array(
+        $steps['islandora_addcustom_datastream_form'] = array(
           'type' => 'form',
-          'form_id' => 'islandora_add_datastream_form',
-          'weight' => -10,
+          'form_id' => 'islandora_addcustom_datastream_form',
+          'weight' => 20,
           // 'args' => array($selected_urls),
           'file' => 'includes/deposit_form.inc',
-          'module' => 'islandora_add_datastream',
+          'module' => 'islandora_addcustom_datastream',
         );
       }
     }
@@ -72,7 +72,7 @@ function islandora_add_datastream_islandora_ingest_steps_alter(array &$steps, ar
 /**
  * Implements hook_islandora_edit_datastream_registry(). This is the datastream edit button.
  */
-function islandora_add_datastream_islandora_edit_datastream_registry(AbstractObject $object, AbstractDatastream $datastream) {
+function islandora_addcustom_datastream_islandora_edit_datastream_registry(AbstractObject $object, AbstractDatastream $datastream) {
   if (strtoupper($datastream->id) == 'LICENSE') {
     return array(
       array(
